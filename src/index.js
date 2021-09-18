@@ -4,16 +4,13 @@ import './index.css';
 
 
 
-class Square extends React.Component {
+function Square(props) {
   
-
-  render() {
     return ( //the component takes in the props its passed 
       <button className="square" onClick={() => this.props.onClick()}>
         {this.props.value} 
       </button>
     );
-  }
 }
 
 class Board extends React.Component {
@@ -25,7 +22,7 @@ class Board extends React.Component {
     }
 
     handleClick(i) {
-      const squares = this.state.squares.slice()
+      const squares = this.state.squares.slice() //.slice() is immutable it will not change the data 
       squares[i] = 'X';
       this.setState({squares: squares})
     }
